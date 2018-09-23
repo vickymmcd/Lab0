@@ -7,10 +7,10 @@
 
 module behavioralFullAdder
 (
-    output sum, 
+    output sum,
     output carryout,
-    input a, 
-    input b, 
+    input a,
+    input b,
     input carryin
 );
     // Uses concatenation operator and built-in '+'
@@ -19,10 +19,10 @@ endmodule
 
 module structuralFullAdder
 (
-    output sum, 
+    output sum,
     output carryout,
-    input a, 
-    input b, 
+    input a,
+    input b,
     input carryin
 
 );
@@ -51,14 +51,15 @@ module FullAdder4bit
     // Your Code Here
 
     //reg a, b, carryin;
-    wire sum0,sum1,sum2,sum3, carryout0, carryout1, carryout2;
+    wire carryout0, carryout1, carryout2;
 
-    structuralFullAdder adder0(sum0, carryout0, a[0], b[0], overflow);
-    structuralFullAdder adder1(sum1, carryout1, a[1], b[1], carryout0);
-    structuralFullAdder adder2(sum2, carryout2, a[2], b[2], carryout1);
-    structuralFullAdder adder3(sum, carryout, a[3], b[3], carryout2);
+    structuralFullAdder adder0(sum[0], carryout0, a[0], b[0], 0);
+    structuralFullAdder adder1(sum[1], carryout1, a[1], b[1], carryout0);
+    structuralFullAdder adder2(sum[2], carryout2, a[2], b[2], carryout1);
+    structuralFullAdder adder3(sum[3], carryout, a[3], b[3], carryout2);
 
-    // Sum into one thing
+    // Overflow is the value of carryout, so we use an and gate
+    `AND andGate(overflow, carryout, carryout);
 
 
 endmodule
