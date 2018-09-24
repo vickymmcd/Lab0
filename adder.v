@@ -59,7 +59,7 @@ module FullAdder4bit
     structuralFullAdder adder3(sum[3], carryout, a[3], b[3], carryout2);
 
     // Overflow is the value of carryout, so we use an and gate
-    `AND andGate(overflow, carryout, carryout);
+    `XOR xorGate(overflow, carryout, carryout2);
 
 
 endmodule
