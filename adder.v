@@ -30,9 +30,9 @@ module structuralFullAdder
  wire AxorB, AxorBxorC, AxorBC, AB;
 
  `XOR xorGate(AxorB, a, b);
- `XOR xorGate(sum, AxorB, carryin);
+ `XOR xorGate2(sum, AxorB, carryin);
  `AND andGate(AB, a, b);
- `AND andGate(AxorBC, carryin, AxorB);
+ `AND andGate2(AxorBC, carryin, AxorB);
  `OR orGate( carryout, AB, AxorBC);
 
 
