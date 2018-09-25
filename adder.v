@@ -53,7 +53,7 @@ module FullAdder4bit
     //reg a, b, carryin;
     wire carryout0, carryout1, carryout2;
 
-    structuralFullAdder adder0(sum[0], carryout0, a[0], b[0], 0);
+    structuralFullAdder adder0(sum[0], carryout0, a[0], b[0], 1'b0);
     structuralFullAdder adder1(sum[1], carryout1, a[1], b[1], carryout0);
     structuralFullAdder adder2(sum[2], carryout2, a[2], b[2], carryout1);
     structuralFullAdder adder3(sum[3], carryout, a[3], b[3], carryout2);
